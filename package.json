@@ -1,17 +1,40 @@
 {
-    "buildNpmdoc":"live-reload",
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "buildNpmdoc": "live-reload",
+    "description": "api documentation for [live-reload (v1.1.0)](https://github.com/Raynos/live-reload) [![npm package](https://img.shields.io/npm/v/npmdoc-live-reload.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-live-reload) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-live-reload.svg)](https://travis-ci.org/npmdoc/node-npmdoc-live-reload)",
     "devDependencies": {
-        "live-reload": "*",
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "live-reload": "*",
         "utility2": "kaizhu256/node-utility2#alpha"
     },
-    "name":"npmdoc-live-reload",
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmdoc/node-npmdoc-live-reload",
+    "keywords": [
+        "documentation",
+        "live-reload"
+    ],
+    "license": "MIT",
+    "main": "lib.npmdoc_live_reload.js",
+    "name": "npmdoc-live-reload",
+    "nameAlias": "npmdoc_live_reload",
+    "nameOriginal": "npmdoc-live-reload",
+    "os": [
+        "darwin",
+        "linux"
+    ],
     "repository": {
         "type": "git",
         "url": "https://github.com/npmdoc/node-npmdoc-live-reload"
     },
     "scripts": {
-        "build-ci": "utility2 shReadmeTest build_ci.sh"
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "(set -e; npm install \"kaizhu256/node-utility2#alpha\"; utility2 shDeployHeroku)",
+        "postinstall": "if [ -f npm_scripts.sh ]; then ./npm_scripts.sh postinstall; fi",
+        "start": "(set -e; export PORT=${PORT:-8080}; utility2 start test.js)",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
     },
     "version": "0.0.1"
 }
