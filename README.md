@@ -1,9 +1,14 @@
-# api documentation for  [live-reload (v1.1.0)](https://github.com/Raynos/live-reload)  [![npm package](https://img.shields.io/npm/v/npmdoc-live-reload.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-live-reload) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-live-reload.svg)](https://travis-ci.org/npmdoc/node-npmdoc-live-reload)
+# npmdoc-live-reload
+
+#### api documentation for  [live-reload (v1.1.0)](https://github.com/Raynos/live-reload)  [![npm package](https://img.shields.io/npm/v/npmdoc-live-reload.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-live-reload) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-live-reload.svg)](https://travis-ci.org/npmdoc/node-npmdoc-live-reload)
+
 #### A live reload server & client
 
-[![NPM](https://nodei.co/npm/live-reload.png?downloads=true)](https://www.npmjs.com/package/live-reload)
+[![NPM](https://nodei.co/npm/live-reload.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/live-reload)
 
-[![apidoc](https://npmdoc.github.io/node-npmdoc-live-reload/build/screenCapture.buildNpmdoc.browser._2Fhome_2Ftravis_2Fbuild_2Fnpmdoc_2Fnode-npmdoc-live-reload_2Ftmp_2Fbuild_2Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-live-reload/build/apidoc.html)
+- [https://npmdoc.github.io/node-npmdoc-live-reload/build/apidoc.html](https://npmdoc.github.io/node-npmdoc-live-reload/build/apidoc.html)
+
+[![apidoc](https://npmdoc.github.io/node-npmdoc-live-reload/build/screenCapture.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://npmdoc.github.io/node-npmdoc-live-reload/build/apidoc.html)
 
 ![npmPackageListing](https://npmdoc.github.io/node-npmdoc-live-reload/build/screenCapture.npmPackageListing.svg)
 
@@ -17,16 +22,14 @@
 
 {
     "author": {
-        "name": "Raynos",
-        "email": "raynos2@gmail.com"
+        "name": "Raynos"
     },
     "bin": {
         "live-reload": "bin/reload.js"
     },
     "browserify": "browser.js",
     "bugs": {
-        "url": "https://github.com/Raynos/live-reload/issues",
-        "email": "raynos2@gmail.com"
+        "url": "https://github.com/Raynos/live-reload/issues"
     },
     "contributors": [
         {
@@ -61,13 +64,11 @@
     "main": "index",
     "maintainers": [
         {
-            "name": "raynos",
-            "email": "raynos2@gmail.com"
+            "name": "raynos"
         }
     ],
     "name": "live-reload",
     "optionalDependencies": {},
-    "readme": "ERROR: No README data found!",
     "repository": {
         "type": "git",
         "url": "git://github.com/Raynos/live-reload.git"
@@ -76,16 +77,6 @@
     "version": "1.1.0"
 }
 ```
-
-
-
-# <a name="apidoc.tableOfContents"></a>[table of contents](#apidoc.tableOfContents)
-
-#### [module live-reload](#apidoc.module.live-reload)
-
-
-
-# <a name="apidoc.module.live-reload"></a>[module live-reload](#apidoc.module.live-reload)
 
 
 
