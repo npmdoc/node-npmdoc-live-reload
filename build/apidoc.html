@@ -61,12 +61,94 @@
 
     <li class="apidocModuleLi"><a href="#apidoc.module.live-reload">module live-reload</a><ol>
 
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.live-reload.live-reload">
+            function <span class="apidocSignatureSpan"></span>live-reload
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
     </ol></li>
 
 </ol></div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.live-reload" id="apidoc.module.live-reload">module live-reload</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.live-reload.live-reload" id="apidoc.element.live-reload.live-reload">
+        function <span class="apidocSignatureSpan"></span>live-reload
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function LiveReloadServer(options) {
+    var server = http.createServer(serveText)
+        , sock = shoe(handleStream)
+        , paths = options._ || process.cwd()
+        , filterIgnored = options.ignore || noop
+        , delay = options.delay || 1000
+        , port = options.port || 9090
+        , timer
+        , source = bundle(path.join(__dirname, &#x22;reload.js&#x22;), {
+            body: &#x22;require(&#x27;./browser.js&#x27;)(&#x22; + port + &#x22;)&#x22;
+        })
+
+    watchr.watch({
+        paths: paths
+        , listener: reload
+        , ignoreHiddenFiles: true
+        , ignorePatterns: true
+    })
+
+    sock.install(server, &#x22;/shoe&#x22;)
+
+    server.listen(port)
+
+    console.log(&#x22;live reload server listening on port&#x22;, port
+        , &#x22;reloading on files&#x22;)
+
+
+    function serveText(req, res) {
+        res.setHeader(&#x22;content-type&#x22;, &#x22;application/javascript&#x22;)
+        res.end(source)
+    }
+
+    function handleStream(stream) {
+        openStreams.push(stream)
+
+        stream.on(&#x22;end&#x22;, remove)
+
+        function remove() {
+            var index = openStreams.indexOf(stream)
+            if (index !== -1) {
+                openStreams.splice(index, 1)
+            }
+        }
+    }
+
+    function reload(fileName) {
+        if (timer) {
+            clearTimeout(timer)
+        }
+
+        timer = setTimeout(function () {
+            if (!filterIgnored(fileName)) {
+                openStreams.forEach(sendMessage)
+            }
+        }, delay)
+    }
+
+    function sendMessage(stream) {
+        stream &#x26;&#x26; stream.write(&#x22;reload&#x22;)
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
 
 </div>
 

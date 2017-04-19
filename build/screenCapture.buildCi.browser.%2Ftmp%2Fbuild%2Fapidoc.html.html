@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="https://github.com/Raynos/live-reload"
-
-    >live-reload (v1.1.0)</a>
+    <a href="https://github.com/Raynos/live-reload">live-reload (v1.1.0)</a>
 </h1>
-<h4>A live reload server & client</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<h4>A live reload server &amp; client</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.live-reload">module live-reload</a><ol>
 
@@ -93,8 +86,8 @@
         , delay = options.delay || 1000
         , port = options.port || 9090
         , timer
-        , source = bundle(path.join(__dirname, &#x22;reload.js&#x22;), {
-            body: &#x22;require(&#x27;./browser.js&#x27;)(&#x22; + port + &#x22;)&#x22;
+        , source = bundle(path.join(__dirname, "reload.js"), {
+            body: "require('./browser.js')(" + port + ")"
         })
 
     watchr.watch({
@@ -104,23 +97,23 @@
         , ignorePatterns: true
     })
 
-    sock.install(server, &#x22;/shoe&#x22;)
+    sock.install(server, "/shoe")
 
     server.listen(port)
 
-    console.log(&#x22;live reload server listening on port&#x22;, port
-        , &#x22;reloading on files&#x22;)
+    console.log("live reload server listening on port", port
+        , "reloading on files")
 
 
     function serveText(req, res) {
-        res.setHeader(&#x22;content-type&#x22;, &#x22;application/javascript&#x22;)
+        res.setHeader("content-type", "application/javascript")
         res.end(source)
     }
 
     function handleStream(stream) {
         openStreams.push(stream)
 
-        stream.on(&#x22;end&#x22;, remove)
+        stream.on("end", remove)
 
         function remove() {
             var index = openStreams.indexOf(stream)
@@ -143,7 +136,7 @@
     }
 
     function sendMessage(stream) {
-        stream &#x26;&#x26; stream.write(&#x22;reload&#x22;)
+        stream &amp;&amp; stream.write("reload")
     }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -158,3 +151,4 @@
     ]
 </div>
 </div>
+</body></html>
